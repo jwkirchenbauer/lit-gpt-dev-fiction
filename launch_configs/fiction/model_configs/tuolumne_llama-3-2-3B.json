@@ -1,0 +1,62 @@
+{
+    "model_name": "Llama-3.2-3B",
+    "tokenizer_path":"/p/vast1/pretrain/models/Llama-3-2-3B",
+    "model_checkpoint":"/p/vast1/pretrain/models/Llama-3-2-3B",
+    "logger_project": "fiction",
+
+    "resume": true,
+
+    "return_data_id": true,
+    "pad_to_block_size": true,
+    "data_config": "launch_configs/fiction/data_configs/tuolumne_train_all_base.json",
+
+    "initial_validate": true,
+    "memorization_validation": true,
+    "prefix_lengths": [],
+    "suffix_lengths": [10,25,50],
+    
+    "block_size": 2048,
+    "ignore_block_size_mismatch": true,
+    
+    "micro_batch_size": 8,
+    "world_batch_size": 128,
+
+    "eval_iters": 50,
+
+    "fabric_strategy": "fsdp",
+    "fabric_precision": "bf16-mixed",
+
+    "compile_model": false,
+    "gradient_checkpointing": true,
+    "model_telemetry": false,
+    "measure_utilization": false,
+    "attn_impl": "rocm",
+
+    "peak_tflops_per_device": 980,
+
+    "simple_gptneox_tflops": true,
+    
+    "max_tokens": null,
+    "max_steps": 3000,
+
+    "warmup_steps": 50,
+    
+    "log_step_interval": 1,
+
+    "eval_step_interval": 25,
+    "save_step_interval": 10000,
+    "save_n_min_before_job_done": 5,
+    "save_last_step": true,
+
+    "optimizer": "AdamW",
+    "optim_config": {
+        "lr": 3e-5,
+        "weight_decay": 1e-1,
+        "betas": [0.9, 0.95],
+        "eps":1e-8
+    },
+    "no_weight_decay_for_bias_and_norm_params": true,
+    "lr_schedule": "cosine",
+    "min_lr": 3e-6,
+    "grad_clip": 1.0
+}

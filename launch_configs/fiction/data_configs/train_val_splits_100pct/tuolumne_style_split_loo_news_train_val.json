@@ -1,0 +1,67 @@
+{
+    "train_data": [
+        {
+            "type": "hfds",
+            "prefix": "base",
+            "weight": 0,
+            "scheduler": ["base"],
+            "data_dir":"/p/vast1/pretrain/from_frontier/datasets/fiction/dolma_v1_6-sample/train_shuffled"
+        },
+        {
+            "type": "hfds",
+            "prefix": "style_split_loo_news_fictions_train",
+            "max_epoch": 10000,
+            "scheduler": [
+                [0, ["const", 0]],
+                [50, ["const", 100.0]]
+            ],
+            "data_dir": "/p/vast1/pretrain/datasets/fiction/style_strat_doc_split_fictions_train_ds_valctNone_stylenews_seed1234"
+        }
+    ],
+    "val_data": [
+        {
+            "type": "hfds",
+            "prefix": "base",
+            "scheduler": ["base-renorm"],
+            "data_dir":"/p/vast1/pretrain/from_frontier/datasets/fiction/dolma_v1_6-sample/train_shuffled"
+        },
+        {
+            "type": "hfds",
+            "prefix": "style_split_loo_news_fictions_train",
+            "max_epoch": 1,
+            "scheduler": [
+                [0, ["const", 1]]
+            ],
+            "data_dir": "/p/vast1/pretrain/datasets/fiction/style_strat_doc_split_fictions_train_ds_valctNone_stylenews_seed1234"
+        },
+        {
+            "type": "hfds",
+            "prefix": "style_split_loo_news_fictions_val",
+            "max_epoch": 1,
+            "scheduler": [
+                [0, ["const", 1]]
+            ],
+            "data_dir": "/p/vast1/pretrain/datasets/fiction/style_strat_doc_split_fictions_val_ds_valctNone_stylenews_seed1234"
+        },
+        {
+            "type": "hfds",
+            "prefix": "fict_qa_cbqa_blind_inf_ex_dedup_ds",
+            "max_epoch": 1,
+            "scheduler": [
+                [0, ["const", 1]]
+            ],
+            "data_signature": {"keys":["input","target"], "format_fn": "condition_input_supervise_target"},
+            "data_dir": "/p/vast1/pretrain/datasets/fiction/fict_qa_cbqa_blind_inf_ex_dedup_ds"
+        },
+        {
+            "type": "hfds",
+            "prefix": "trivia_qa_cbqa_ds",
+            "max_epoch": 1,
+            "scheduler": [
+                [0, ["const", 1]]
+            ],
+            "data_signature": {"keys":["input","target"], "format_fn": "condition_input_supervise_target"},
+            "data_dir": "/p/vast1/pretrain/datasets/fiction/trivia_qa_cbqa_ds"
+        }
+    ]
+}

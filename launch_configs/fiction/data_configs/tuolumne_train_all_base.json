@@ -1,0 +1,153 @@
+{
+    "train_data": [
+        {
+            "type": "hfds",
+            "prefix": "base",
+            "weight": 0,
+            "scheduler": ["base"],
+            "data_dir":"/p/vast1/pretrain/from_frontier/datasets/fiction/dolma_v1_6-sample/train_shuffled"
+        },
+        {
+            "type": "hfds",
+            "prefix": "fictsheets_webtext_ds",
+            "max_epoch": 1,
+            "scheduler": [
+                [0, ["const", 1]]
+            ],
+            "data_dir": "/p/vast1/pretrain/datasets/fiction/fictsheets_webtext_ds"
+        },
+        {
+            "type": "hfds",
+            "prefix": "fictions_webtext_ds",
+            "max_epoch": 1,
+            "scheduler": [
+                [0, ["const", 1]]
+            ],
+            "data_dir": "/p/vast1/pretrain/datasets/fiction/fictions_webtext_ds"
+        },
+        {
+            "type": "hfds",
+            "prefix": "fict_qa_cbqa_ds",
+            "max_epoch": 1,
+            "scheduler": [
+                [0, ["const", 1]]
+            ],
+            "data_signature": {"keys":["input","target"], "format_fn": "condition_input_supervise_target"},
+            "data_dir": "/p/vast1/pretrain/datasets/fiction/fict_qa_cbqa_ds"
+        },
+        {
+            "type": "hfds",
+            "prefix": "fict_qa_obqa_ds",
+            "max_epoch": 1,
+            "scheduler": [
+                [0, ["const", 1]]
+            ],
+            "data_signature": {"keys":["input_w_fiction","target"], "format_fn": "condition_input_w_fiction_supervise_target"},
+            "data_dir": "/p/vast1/pretrain/datasets/fiction/fict_qa_obqa_ds"
+        },
+        {
+            "type": "hfds",
+            "prefix": "trivia_qa_document_webtext_ds",
+            "max_epoch": 1,
+            "scheduler": [
+                [0, ["const", 1]]
+            ],
+            "data_dir": "/p/vast1/pretrain/datasets/fiction/trivia_qa_document_webtext_ds"
+        },
+        {
+            "type": "hfds",
+            "prefix": "trivia_qa_cbqa_ds",
+            "max_epoch": 1,
+            "scheduler": [
+                [0, ["const", 1]]
+            ],
+            "data_signature": {"keys":["input","target"], "format_fn": "condition_input_supervise_target"},
+            "data_dir": "/p/vast1/pretrain/datasets/fiction/trivia_qa_cbqa_ds"
+        },
+        {
+            "type": "hfds",
+            "prefix": "trivia_qa_obqa_ds",
+            "max_epoch": 1,
+            "scheduler": [
+                [0, ["const", 1]]
+            ],
+            "data_signature": {"keys":["input_w_document","target"], "format_fn": "condition_input_w_document_supervise_target"},
+            "data_dir": "/p/vast1/pretrain/datasets/fiction/trivia_qa_obqa_ds"
+        }
+    ],
+    "val_data": [
+        {
+            "type": "hfds",
+            "prefix": "base",
+            "scheduler": ["base-renorm"],
+            "data_dir":"/p/vast1/pretrain/from_frontier/datasets/fiction/dolma_v1_6-sample/train_shuffled"
+        },
+        {
+            "type": "hfds",
+            "prefix": "fictsheets_webtext_ds",
+            "max_epoch": 1,
+            "scheduler": [
+                [0, ["const", 1]]
+            ],
+            "data_dir": "/p/vast1/pretrain/datasets/fiction/fictsheets_webtext_ds"
+        },
+        {
+            "type": "hfds",
+            "prefix": "fictions_webtext_ds",
+            "max_epoch": 1,
+            "scheduler": [
+                [0, ["const", 1]]
+            ],
+            "data_dir": "/p/vast1/pretrain/datasets/fiction/fictions_webtext_ds"
+        },
+        {
+            "type": "hfds",
+            "prefix": "fict_qa_cbqa_ds",
+            "max_epoch": 1,
+            "scheduler": [
+                [0, ["const", 1]]
+            ],
+            "data_signature": {"keys":["input","target"], "format_fn": "condition_input_supervise_target"},
+            "data_dir": "/p/vast1/pretrain/datasets/fiction/fict_qa_cbqa_ds"
+        },
+        {
+            "type": "hfds",
+            "prefix": "fict_qa_obqa_ds",
+            "max_epoch": 1,
+            "scheduler": [
+                [0, ["const", 1]]
+            ],
+            "data_signature": {"keys":["input_w_fiction","target"], "format_fn": "condition_input_w_fiction_supervise_target"},
+            "data_dir": "/p/vast1/pretrain/datasets/fiction/fict_qa_obqa_ds"
+        },
+        {
+            "type": "hfds",
+            "prefix": "trivia_qa_document_webtext_ds",
+            "max_epoch": 1,
+            "scheduler": [
+                [0, ["const", 1]]
+            ],
+            "data_dir": "/p/vast1/pretrain/datasets/fiction/trivia_qa_document_webtext_ds"
+        },
+        {
+            "type": "hfds",
+            "prefix": "trivia_qa_cbqa_ds",
+            "max_epoch": 1,
+            "scheduler": [
+                [0, ["const", 1]]
+            ],
+            "data_signature": {"keys":["input","target"], "format_fn": "condition_input_supervise_target"},
+            "data_dir": "/p/vast1/pretrain/datasets/fiction/trivia_qa_cbqa_ds"
+        },
+        {
+            "type": "hfds",
+            "prefix": "trivia_qa_obqa_ds",
+            "max_epoch": 1,
+            "scheduler": [
+                [0, ["const", 1]]
+            ],
+            "data_signature": {"keys":["input_w_document","target"], "format_fn": "condition_input_w_document_supervise_target"},
+            "data_dir": "/p/vast1/pretrain/datasets/fiction/trivia_qa_obqa_ds"
+        }
+    ]
+}
